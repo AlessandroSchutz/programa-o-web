@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Exercícios</title>
 </head>
 <body>
@@ -201,13 +202,74 @@
 
     <h2>Bônus - Combinação:</h2>
 
-    <p> 16. Elabore um formulário de registro para um workshop de conscientização sobre segurança cibernética, solicitando informações pessoais básicas e perguntando sobre preocupações de segurança atuals.</p>
+    <p> 16. Elabore um formulário de registro para um workshop de conscientização sobre segurança cibernética, solicitando informações pessoais básicas e perguntando sobre preocupações de seguranças atuais.</p>
+
+    <form>
+        <label for="nome">Nome:</label><br>
+        <input type="text" name="nome" placeholder="Digite seu usuário"><br>
+        <label for="sobrenome">Sobrenome:</label><br>
+        <input type="name" placeholder="Digite seu sobrenome"><br>
+        <label for="email">E-mail:</label><br>
+        <input type="email" name="email" id="email" placeholder="Digite seu e-mail"><br>
+        <label for="text">Quais suas preocupações com a segurança cibernética?</label><br>
+        <textarea name="feedback" id="" cols="30" rows="10"></textarea><br>
+        <input type="submit" value="Enviar">
+    </form>
+
 
     <p> 17. Crie uma lista de verificação de 5 itens que um usuário deve revisar ao configurar a segurança de um roteador Wi-Fi, apresentada em uma lista não ordenada.</p>
+
+    <ul>
+        <li>Nome da Rede (SSID)</li>
+        <li>Senha de Acesso à Rede</li>
+        <li>Tipo de Criptografia</li>
+        <li>Atualização de Firmware</li>
+        <li>Filtragem de MAC Address</li>
+    </ul>
+
     <p> 18. Faça uma lista ordenada dos passos que um administrador de sistemas deve seguir ao lidar com uma violação de dados.</p>
+
+    <ol>
+        <li>Isolamento e Contenção</li>
+        <li>Reúna uma Equipe de Resposta a Incidentes</li>
+        <li>Avaliação da Extensão da Violação</li>
+        <li>Notificação das Partes Interessadas</li>
+        <li>Coleta de Evidências</li>
+        <li>Remediação</li>
+        <li>Relatórios às Autoridades Competentes</li>
+        <li>Comunicação com a Mídia e o Público</li>
+        <li>Notificação às Agências de Relatórios de Crédito</li>
+        <li>Monitoramento Contínuo</li>
+        <li>Análise Pós-Incidente</li>
+        <li>Preparação para Litígios</li>
+        <li>Relatório Interno</li>
+        <li>Treinamento e Conscientização</li>
+        <li>Avaliação e Aprendizado</li>
+    </ol>
 
     <p> 19. Desenvolva um formulário de pesquisa com opções de múltipla escolha sobre quais medidas de segurança cibernética os usuários consideram mais eficazes.</p>
 
+    <form>
+        <label for="pergunta"> Quais das seguintes medidas de segurança cibernética você considera mais eficazes?</label><br>
+        <input type="checkbox" name="pergunta"> Uso de senhas fortes e únicas.<br>
+        <input type="checkbox" name="pergunta"> Atualização regular de software e sistemas.<br>
+        <input type="checkbox" name="pergunta"> Autenticação de dois fatores (2FA) ou autenticação multifatorial (MFA).<br>
+        <input type="checkbox" name="pergunta"> Monitoramento constante de contas e atividades suspeitas.<br>
+        <input type="checkbox" name="pergunta"> Educação e treinamento em segurança cibernética.<br>
+        <input type="checkbox" name="pergunta"> Utilização de software antivírus/antimalware.<br>
+        <input type="checkbox" name="pergunta"> Firewall de rede ativo.<br>
+        <input type="checkbox" name="pergunta"> Criptografia de dados sensíveis.<br>
+        <input type="checkbox" name="pergunta"> Auditorias de segurança regulares.<br>
+        <input type="checkbox" name="pergunta"> Controle de acesso baseado em função (RBAC).<br>
+        <input type="checkbox" name="pergunta"> Backup regular de dados importantes.<br>
+        <input type="checkbox" name="pergunta"> Proteção contra phishing e ataques de engenharia social.<br>
+        <input type="checkbox" name="pergunta"> Gerenciador de senhas.<br>
+        <input type="checkbox" name="pergunta"> Segurança física de dispositivos (por exemplo, bloqueio de computadores).<br>
+        <input type="checkbox" name="pergunta"> Nenhuma medida de segurança cibernética é eficaz.<br>
+        <input type="submit">
+    </form>
+
     <p> 20. Crie uma página que combina as listas ordenadas e não ordenadas anteriores, explicando os fundamentos da segurança cibernética, os tipos de ataques e as medidas preventivas em formato de lista.</p>
+    <a href="exercicio20.html" target="_blank">Clique aqui para ver a resposta!</a>
 </body>
 </html>
