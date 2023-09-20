@@ -1,0 +1,363 @@
+body{
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #fff;
+    color: #333;
+}
+
+h3{
+    text-align: center;
+}
+
+li {
+    padding: 7px;
+}
+
+label {
+    font-weight: bold;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+div>ul{
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(169, 169, 169, 0.527);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*CSS exercício 1*/
+.muda-cor-ex1{
+    background-color: darkgreen;
+}
+.atencao {
+    color: yellow;
+    padding: 10px 20px;
+}
+
+.perigo {
+    color: red;
+    padding: 10px 20px;
+}
+
+.informacao {
+    color: blue;
+    padding: 10px 20px;
+}
+
+/*CSS exercício 2*/
+
+.termo {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dica {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1;
+    width: 150px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.termo:hover .dica {
+    display: block;
+}
+
+/*CSS exercício 3*/
+
+.input-vazio:invalid {
+    border: 2px solid red;
+}
+
+.input-vazio:required:valid {
+    border: 2px solid green;
+}
+
+.input-vazio {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/*CSS exercício 4*/
+
+.verificar-botao {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.verificando {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1;
+    width: 150px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.verificar-botao:active .verificando {
+    display: block;
+}
+
+/*CSS exercício 7*/
+
+.exercicio-7{
+    text-align: left;
+}
+
+.cor-icone{
+    margin-right: 10px;
+    color: #007bff;
+}
+
+/*CSS exercício 8*/
+
+.dark-mode{
+    background-color: #333;
+    color: #fff;
+}
+
+/*CSS exercício 9*/
+
+.estatisticas{
+    display: flex;
+    flex-direction: column;
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.tipo-ataque{
+    flex: 1;
+    font-weight: bold;   
+}
+
+.barra{
+    flex: 5;
+    height: 20px;
+    max-width: 350px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+.phishing{
+    background-color: #ff5733;
+}
+
+.malware{
+    background-color: #ff9933;
+}
+
+.ddos{
+    background-color: #33cc33;
+}
+
+.ransomware{
+    background-color: #007bff;
+}
+
+.sql-injection{
+    background-color: blueviolet;
+}
+
+.percentagem{
+    flex: 1;
+    
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/*CSS exercício 10*/
+
+.lista-antivirus {
+    list-style: none;
+    padding: 0;
+}
+
+.antivirus-item {
+    background-color: #f7f7f7;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.antivirus-item input[type="checkbox"] {
+    display: none;
+}
+
+.antivirus-item label::before {
+    content: "+";
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.antivirus-item input[type="checkbox"]:checked + label::before {
+    content: "-";
+}
+
+.descricao-antivirus {
+    display: none;
+    margin-top: 10px;
+}
+
+.antivirus-item input[type="checkbox"]:checked ~ .descricao-antivirus {
+    display: block;
+}
+
+.descricao-antivirus p {
+    margin: 5px 0;
+}
+
+/*CSS exercício 11*/
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+
+.campo{
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="checkbox"]{
+
+    margin-left: 5px;
+}
+
+/*CSS exercício 5*/
+
+@media screen and (max-width: 767px) {
+    .responsive-table{
+        margin: auto;
+        max-width: 600px;
+        overflow: hidden;
+        overflow-x: auto;
+    } 
+    table {
+        border-collapse: collapse;
+        font-size: 20px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    table td , table th {
+        min-width: 290px;
+        padding: 4px;
+        text-align: left;
+        border: 1px solid black;
+    }
+    
+    table th {
+        background: darkgrey;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .responsive-table{
+        margin: auto;
+        max-width: 700px;
+        overflow: hidden;
+        overflow-x: auto;
+    }
+    table {  
+        border-collapse: collapse;
+        font-size: 20px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    table td , table th {
+        min-width: 340px;
+        padding: 4px;
+        text-align: left;
+        border: 1px solid black;
+    }
+    
+    table th {
+        background: darkgrey;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .responsive-table{
+        margin: auto;
+        max-width: 950px;
+        overflow: hidden;
+        overflow-x: auto;
+    }
+    table {  
+        border-collapse: collapse;
+        font-size: 20px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    table td , table th {
+        min-width: 307px;
+        padding: 4px;
+        text-align: left;
+        border: 1px solid black;
+    }
+    
+    table th {
+        background: darkgrey;
+    }
+}
+
+
+
+
+
