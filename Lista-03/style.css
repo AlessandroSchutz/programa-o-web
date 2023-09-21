@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url('img/img-segurança-informacao.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+.cabecalho { 
+    width: 560px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.521);
+}
+
+.container{
+    width: 760px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.521);
+}
+
+.texto-alinhado{
+    text-align: center;
+    padding: 10px;
+}
+
+section{
+    padding: 10px 30px;
+}
+
+h1{
+    font-style: italic;
+    font-size: 35px;
+}
+
+h2{
+    padding-bottom: 10px;
+}
+
+p{
+    font-size: 20px;
+}
+
+li{
+    padding: 3px;
+    font-size: 18px;
+}
+
+/*CSS menu*/
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav li{
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover{
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.fas{
+    margin-right: 10px;
+    color: #007bff;
+}
+
+/*CSS Serviços*/
+
+.lista-servicos {
+    list-style: none;
+    padding: 0;
+}
+
+.servico-item {
+    background-color: rgba(0, 0, 0, 0.432);
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #1f1e1eea;
+}
+
+.servico-item input[type="checkbox"] {
+    display: none;
+}
+
+.servico-item label::before {
+    content: "+";
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.servico-item input[type="checkbox"]:checked + label::before {
+    content: "-";
+}
+
+.descricao-servico {
+    display: none;
+    margin-top: 10px;
+}
+
+.servico-item input[type="checkbox"]:checked ~ .descricao-servico {
+    display: block;
+}
+
+.descricao-servico p {
+    margin: 5px 0;
+}
+
+/*CSS Depoimentos*/
+
+.depoimentos {
+   
+    text-align: center;
+    padding: 20px 0;
+}
+
+.depoimentos h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.depoimento {
+    background-color: rgba(0, 0, 0, 0.432);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(#007bff);
+    margin-bottom: 10px;
+}
+
+.depoimento p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.depoimento cite {
+    color: #007bff;
+    font-size: 16px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 568px){
+    .cabecalho { 
+        width: 260px;
+        margin: 20px auto;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.521);
+    }
+    
+    .corpo{
+        width: 300px;
+        margin: 20px auto;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.521);
+    }
+    
+    section{
+        padding: 10px 30px;
+    }
+    
+    h2{
+        padding-bottom: 10px;
+        font-size: 18px;
+    }
+    
+    li{
+        padding: 3px;
+        font-size: 15px;
+    }
+    
+    h1{
+        font-style: italic;
+        font-size: 22px;
+    }
+    
+    p{
+        font-size: 15px;
+    }
+    
+    .texto-alinhado{
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 569px) and (max-width: 767px){
+    .cabecalho { 
+        width: 390px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.521);
+    }
+    
+    .corpo{
+        width: 500px;
+        margin: 10px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.521);
+    }
+    
+    section{
+        padding: 10px 30px;
+    }
+    
+    h2{
+        padding-bottom: 10px;
+        font-size: 23px;
+    }
+    
+    li{
+        padding: 3px;
+        font-size: 18px;
+    }
+    
+    h1{
+        font-style: italic;
+        font-size: 27px;
+    }
+    
+    p{
+        font-size: 18px;
+    }
+    
+    .texto-alinhado{
+        text-align: center;
+        padding: 10px;
+    }
+
+}
+
