@@ -1,48 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Segurança da Informação XYZ</title>
     <style>
         .depoimentos {
-    text-align: center;
-    padding: 40px 0;
-    background-color: #f5f5f5;
+            text-align: center;
+            padding: 40px 0;
+            background-color: #f5f5f5;
+        }
+
+        .depoimentos h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para cada depoimento individual */
+        .depoimento {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .depoimento p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .depoimento cite {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Estilo para a área de escrita do input quando focado */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            background-color: #fff;
+            /* Cor de fundo quando focado */
+            border: 2px solid #007bff;
+            /* Estilo da borda quando focado */
+            outline: none;
+            /* Remove a borda padrão de foco */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            /* Sombra quando focado */
+        }
+
+        /* Estilo para o botão */
+        button {
+            background-color: #007bff;
+            /* Cor de fundo do botão */
+            color: #fff;
+            /* Cor do texto do botão */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Estilo para o botão quando o mouse passa por cima */
+        button:hover {
+            background-color: #0056b3;
+            /* Cor de fundo do botão ao passar o mouse */
+        }
+        footer {
+    background-color: #333; /* Cor de fundo do rodapé */
+    color: #fff; /* Cor do texto no rodapé */
+    padding: 20px 0; /* Espaçamento interno no rodapé */
+    text-align: center; /* Centralizar o conteúdo */
 }
 
-.depoimentos h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+/* Estilo para os links úteis */
+.links-uteis {
+    margin-top: 10px; /* Espaçamento superior entre os links e o rodapé */
 }
 
-/* Estilo para cada depoimento individual */
-.depoimento {
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+.links-uteis a {
+    color: #fff; /* Cor dos links */
+    text-decoration: none; /* Remover sublinhado dos links */
+    margin: 0 10px; /* Espaçamento horizontal entre os links */
 }
 
-.depoimento p {
-    font-size: 16px;
-    margin-bottom: 10px;
+/* Estilo para os links quando o mouse passa por cima */
+.links-uteis a:hover {
+    text-decoration: underline; /* Adicionar sublinhado ao passar o mouse */
+}
+.lista-faixas li:nth-child(odd) {
+    background-color: #f2f2f2; /* Cor de fundo para faixas ímpares */
+    padding: 10px; /* Espaçamento interno */
 }
 
-.depoimento cite {
-    font-size: 14px;
-    font-style: italic;
+/* Estilo para faixas pares (even) */
+.lista-faixas li:nth-child(even) {
+    background-color: #fff; /* Cor de fundo para faixas pares */
+    padding: 10px; /* Espaçamento interno */
 }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Bem-vindo à Segurança da Informação XYZ</h1>
         <p>Sua parceira confiável em proteção de dados e segurança cibernética.</p>
     </header>
-    
+
     <section class="destaques">
         <h2>Nossos Serviços de Segurança da Informação</h2>
         <ul>
@@ -52,17 +117,17 @@
             <li>Educação e treinamento em segurança da informação</li>
         </ul>
     </section>
-    
+
     <section class="diferenciais">
         <h2>Por que Escolher a Segurança da Informação XYZ?</h2>
-        <ul>
+        <ul class="lista-faixas">
             <li>Equipe de especialistas altamente qualificados</li>
             <li>Soluções personalizadas para atender às suas necessidades</li>
             <li>Compromisso com a privacidade e a conformidade</li>
             <li>Resultados comprovados na proteção de dados</li>
         </ul>
     </section>
-    
+
     <section class="depoimentos">
         <h2>Depoimentos de Clientes</h2>
         <blockquote class="depoimento">
@@ -70,19 +135,34 @@
             <cite>Cliente 1</cite>
         </blockquote>
         <blockquote class="depoimento">
-            <p>"Vivamus dignissim eget ex eget aliquam. Sed eleifend at quam nec suscipit. Sed eleifend at quam nec suscipit."</p>
+            <p>"Vivamus dignissim eget ex eget aliquam. Sed eleifend at quam nec suscipit. Sed eleifend at quam nec
+                suscipit."</p>
             <cite>Cliente 2</cite>
         </blockquote>
     </section>
-    
+
     <section class="contato">
-        <h2>Fale Conosco</h2>
-        <p>Estamos prontos para ajudar a proteger sua empresa. Entre em contato conosco hoje mesmo!</p>
-        <a href="contato.html" class="botao-contato">Entrar em Contato</a>
+        <h2>Entre em Contato</h2>
+        <p>Tire suas dúvidas ou compartilhe suas preocupações conosco.</p>
+        <form action="processar_formulario.php" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
     </section>
-    
     <footer>
-        <p>&copy; 2023 Segurança da Informação XYZ</p>
+        <div class="links-uteis">
+            <p>Leia nossos <a href="termos-de-servico.html">Termos de Serviço</a> e <a href="politica-de-privacidade.html">Política de Privacidade</a> para obter mais informações.</p>
+        </div>
     </footer>
+    
 </body>
+
 </html>

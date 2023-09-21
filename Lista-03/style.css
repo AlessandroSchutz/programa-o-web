@@ -7,7 +7,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .cabecalho { 
@@ -68,7 +68,7 @@ nav li{
 
 nav a{
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     font-size: 18px;
 }
@@ -113,6 +113,7 @@ nav a:hover{
 }
 
 .descricao-servico {
+    padding: 10px;
     display: none;
     margin-top: 10px;
 }
@@ -123,6 +124,10 @@ nav a:hover{
 
 .descricao-servico p {
     margin: 5px 0;
+}
+
+.lista-servicos li:nth-child(even) {
+    background-color: rgba(0, 123, 255, 0.365);
 }
 
 /*CSS Depoimentos*/
@@ -145,10 +150,11 @@ nav a:hover{
     padding: 20px;
     box-shadow: 0 0 10px rgba(#007bff);
     margin-bottom: 10px;
+    font-style: italic;
 }
 
 .depoimento p {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
@@ -156,6 +162,57 @@ nav a:hover{
     color: #007bff;
     font-size: 16px;
     font-style: italic;
+}
+
+/*CSS Contato*/
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+input[type="text"],
+input[type="email"],
+textarea{
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.432);
+    color: white;
+    margin: 5px;
+    padding: 7px;
+    border:2px solid rgba(255, 255, 255, 0.504);
+}
+button {
+    margin: 0 auto;
+    width: 300px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #007bff;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus{
+    border: 2px solid rgb(0, 123, 255);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.502);
+}
+
+/*CSS Rodapé*/
+.termos-politica {
+    text-align: center;
+    margin-top: 10px; 
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.432);
+}
+.termos-politica a {
+    color: #007bff;
+    text-decoration: none; 
+    margin: 0 10px; 
+}
+.termos-politica a:hover {
+    text-decoration: underline; 
 }
 
 @media screen and (max-width: 568px){
@@ -172,7 +229,7 @@ nav a:hover{
         border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.521);
     }
-    
+
     section{
         padding: 10px 30px;
     }
@@ -196,10 +253,7 @@ nav a:hover{
         font-size: 15px;
     }
     
-    .texto-alinhado{
-        text-align: center;
-        padding: 10px;
-    }
+   
 }
 
 @media screen and (min-width: 569px) and (max-width: 767px){
@@ -218,7 +272,7 @@ nav a:hover{
         border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.521);
     }
-    
+
     section{
         padding: 10px 30px;
     }
