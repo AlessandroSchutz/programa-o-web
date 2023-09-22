@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,17 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="cabecalho">
+    <div id="loader-container" class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <input type="checkbox" id="darkModeToggle">
+    <label for="darkModeToggle" id="darkModeLabel">Dark Mode</label>
+    <div id="content" class="hidden cabecalho">
         <header>
             <h1 class="texto-alinhado">Bem-Vindo a Segurança da Informação</h1>
-            <p class="texto-alinhado">Soluções de Segurança da Informação para empresas e indivíduos.</p>
+            <p sa>Soluções de Segurança da Informação para empresas e indivíduos.</p>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -32,59 +39,128 @@
                     <input type="checkbox" id="auditoria-seguranca">
                     <label for="auditoria-seguranca">Auditoria de Segurança de Redes e Sistemas</label>
                     <div class="descricao-servico">
-                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer a segurança.</p>
+                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar
+                            vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer
+                            a segurança.</p>
                     </div>
                 </li>
                 <li class="servico-item">
                     <input type="checkbox" id="teste-penetracao">
                     <label for="teste-penetracao">Testes de Penetração</label>
                     <div class="descricao-servico">
-                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer a segurança.</p>
+                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar
+                            vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer
+                            a segurança.</p>
                     </div>
                 </li>
                 <li class="servico-item">
                     <input type="checkbox" id="gestao-identidade">
                     <label for="gestao-identidade">Gestão de Identidade e Acesso</label>
                     <div class="descricao-servico">
-                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer a segurança.</p>
+                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar
+                            vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer
+                            a segurança.</p>
                     </div>
                 </li>
                 <li class="servico-item">
                     <input type="checkbox" id="treinamento-conscientizacao">
                     <label for="treinamento-conscientizacao">Treinamento em Conscientização de Segurança</label>
                     <div class="descricao-servico">
-                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer a segurança.</p>
+                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar
+                            vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer
+                            a segurança.</p>
                     </div>
                 </li>
                 <li class="servico-item">
                     <input type="checkbox" id="monitoramento-seguranca">
                     <label for="monitoramento-seguranca">Monitoramento de Segurança e Resposta a Incidentes</label>
                     <div class="descricao-servico">
-                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer a segurança.</p>
+                        <p> Realize análises detalhadas das redes e sistemas de seus clientes para identificar
+                            vulnerabilidades, pontos fracos e ameaças potenciais. Forneça recomendações para fortalecer
+                            a segurança.</p>
                     </div>
                 </li>
             </ul>
+            <div class="tabela-responsiva">
+                <table>
+                    <caption>Comparação de Softwares Antivírus</caption>
+                    <tr>
+                        <th>Nome do Antivírus</th>
+                        <th>Preço(por ano)</th>
+                        <th>Recursos Principais</th>
+                        <th>Avaliação do Usuário</th>
+                    </tr>
+                    <tr>
+                        <td>Norton Antivírus</td>
+                        <td>$49.99</td>
+                        <td>Firewall, Proteção contra Malware, VPN</td>
+                        <td>4.5/5</td>
+                    </tr>
+                    <tr>
+                        <td>McAfee</td>
+                        <td>$39.99</td>
+                        <td>Firewall, Proteção contra em tempo real, Anti-phishing</td>
+                        <td>4.0/5</td>
+                    </tr>
+                    <tr>
+                        <td>Avast Antivírus</td>
+                        <td>Grátis / $59.99</td>
+                        <td>Anti-malware, Proteção de email, VPN opcional</td>
+                        <td>4.2/5</td>
+                    </tr>
+                    <tr>
+                        <td>Kaspersky Antivírus</td>
+                        <td>$59.99</td>
+                        <td>Firewall, Proteção contra ransomware, Controle de Pais </td>
+                        <td>4.3/5</td>
+                    </tr>
+                </table>
+            </div>
         </section>
         <section class="depoimentos">
             <h2>Depoimentos de Clientes</h2>
             <blockquote class="depoimento">
-                <p>"A segurança da informação protegeu nossa empresa de ameaças cibernéticas e nos deu tranquilidade para focar no crescimento do nosso negócio."</p>
+                <p>"A segurança da informação protegeu nossa empresa de ameaças cibernéticas e nos deu tranquilidade
+                    para focar no crescimento do nosso negócio."</p>
                 <cite>Cliente 1</cite>
             </blockquote>
             <blockquote class="depoimento">
-                <p>"Graças aos serviços de segurança da informação, nossos dados confidenciais estão seguros, e nossos clientes confiam em nós para proteger suas informações."</p>
+                <p>"Graças aos serviços de segurança da informação, nossos dados confidenciais estão seguros, e nossos
+                    clientes confiam em nós para proteger suas informações."</p>
                 <cite>Cliente 2</cite>
             </blockquote>
             <blockquote class="depoimento">
-                <p>"A equipe de segurança da informação foi extremamente responsiva e nos orientou em cada passo do processo, garantindo que nossos sistemas estejam sempre protegidos."</p>
+                <p>"A equipe de segurança da informação foi extremamente responsiva e nos orientou em cada passo do
+                    processo, garantindo que nossos sistemas estejam sempre protegidos."</p>
                 <cite>Cliente 3</cite>
             </blockquote>
             <blockquote class="depoimento">
-                <p>"Nossos clientes perceberam nosso compromisso com a segurança da informação e confiam em nós como parceiros de negócios seguros."</p>
+                <p>"Nossos clientes perceberam nosso compromisso com a segurança da informação e confiam em nós como
+                    parceiros de negócios seguros."</p>
                 <cite>Cliente 4</cite>
             </blockquote>
         </section>
         <section class="contato">
+            <h2>Perguntas Frequentes</h2>
+            <details>
+                <summary>O que é segurança da informação?</summary>
+                <p>Segurança da informação é a prática de proteger dados sensíveis e sistemas de ameaças, garantindo que informações confidenciais permaneçam confidenciais.</p>
+            </details>
+        
+            <details>
+                <summary>Por que a segurança da informação é importante?</summary>
+                <p>A segurança da informação é importante para proteger contra ameaças cibernéticas, roubo de dados e garantir a integridade, confidencialidade e disponibilidade das informações.</p>
+            </details>
+        
+            <details>
+                <summary>Quais são as melhores práticas de segurança da informação?</summary>
+                <p>Algumas das melhores práticas incluem o uso de senhas fortes, atualizações regulares de software, treinamento de conscientização em segurança e criptografia de dados.</p>
+            </details>
+        
+            <details>
+                <summary>Como proteger meu computador contra vírus e malware?</summary>
+                <p>Você pode proteger seu computador instalando um software antivírus confiável, mantendo o sistema operacional atualizado e evitando clicar em links e downloads suspeitos.</p>
+            </details>
             <h2>Entre em Contato</h2>
             <p>Tire suas dúvidas ou compartilhe suas preocupações conosco.</p>
             <form class="formulario" action="processar-formulario.php" method="post">
@@ -97,19 +173,36 @@
                     <input type="email" id="email" name="email" required placeholder="Digite seu E-mail">
                 </div>
                 <div>
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha"required>
+                </div>
+                <div>
                     <label for="mensagem">Mensagem:</label><br>
                     <textarea name="mensagem" id="mensagem" cols="30" rows="5" required></textarea>
                 </div>
+                <div>
+                    <input type="checkbox" id="ativar-2fa">
+                    <label for="ativar-2fa">Ativar verificação de dois fatores</label>
+                </div>
+                
                 <button type="submit">Enviar</button>
             </form>
         </section>
         <footer>
             <div class="termos-politica">
-                <p>Leia nossos <a href="termos-de-servico">Termos de Serviço</a> e <a href="politica-de-privacidade">Política de Privacidade</a></p>
+                <p>Leia nossos <a href="termos-de-servico">Termos de Serviço</a> e <a
+                        href="politica-de-privacidade">Política de Privacidade</a></p>
             </div>
         </footer>
     </div>
-
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.getElementById("loader-container").style.display = "none";
+                document.getElementById("content").classList.remove("hidden");
+            }, 2000); 
+        });
+    </script>
 </body>
+
 </html>

@@ -1,13 +1,47 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;;
 }
+
+/*Efeito de Carregamento*/
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.loader {
+    border: 8px solid #f3f3f3; 
+    border-top: 8px solid #3498db; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
+
 body {
     background-image: url('img/img-segurança-informacao.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .cabecalho { 
@@ -15,7 +49,7 @@ body {
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.521);
+    background-color: rgba(255, 255, 255);
 }
 
 .container{
@@ -23,7 +57,7 @@ body {
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.521);
+    background-color: rgb(255, 255, 255);
 }
 
 .texto-alinhado{
@@ -68,13 +102,13 @@ nav li{
 
 nav a{
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: #007bff;
     font-weight: bold;
     font-size: 18px;
 }
 
 nav a:hover{
-    color: #007bff;
+    color: #023c7a;
     text-decoration: underline;
 }
 
@@ -91,10 +125,9 @@ nav a:hover{
 }
 
 .servico-item {
-    background-color: rgba(0, 0, 0, 0.432);
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #1f1e1eea;
+    border: 1px solid rgb(0, 0, 0)
 }
 
 .servico-item input[type="checkbox"] {
@@ -130,6 +163,33 @@ nav a:hover{
     background-color: rgba(0, 123, 255, 0.365);
 }
 
+/*CSS Tabela*/
+.tabela-responsiva{
+    padding: 10px;
+}
+
+table{
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 400px;
+    overflow-x: scroll;
+}
+
+caption{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #007bff6c;
+    border: 2px solid rgb(0, 0, 0);
+    border-bottom: 0px;
+}
+
+th,td{
+    border: 2px solid rgb(0, 0, 0);
+    padding: 5px;
+    text-align: center;
+}
+
 /*CSS Depoimentos*/
 
 .depoimentos {
@@ -144,7 +204,7 @@ nav a:hover{
 }
 
 .depoimento {
-    background-color: rgba(0, 0, 0, 0.432);
+    background-color: rgba(128, 122, 122, 0.3);
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
@@ -163,6 +223,16 @@ nav a:hover{
     font-size: 16px;
     font-style: italic;
 }
+/*Perguntas Frequentes*/
+details{
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+summary{
+    font-size: 18px;
+    font-weight: bold;
+}
 
 /*CSS Contato*/
 .formulario{
@@ -171,19 +241,21 @@ nav a:hover{
 }
 input[type="text"],
 input[type="email"],
+input[type="password"],
 textarea{
     width: 90%;
-    background-color: rgba(0, 0, 0, 0.432);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     margin: 5px;
     padding: 7px;
-    border:2px solid rgba(255, 255, 255, 0.504);
+    border:2px solid rgba(0, 0, 0, 0.504);
 }
 button {
-    margin: 0 auto;
+    margin: 10px auto;
     width: 300px;
     background-color: #007bff;
-    color: #fff;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -198,13 +270,16 @@ textarea:focus{
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.502);
 }
+label{
+    font-size: 18px;
+}
 
 /*CSS Rodapé*/
 .termos-politica {
     text-align: center;
     margin-top: 10px; 
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.432);
+    background-color: rgba(128, 122, 122, 0.3);
 }
 .termos-politica a {
     color: #007bff;
@@ -215,91 +290,100 @@ textarea:focus{
     text-decoration: underline; 
 }
 
-@media screen and (max-width: 568px){
-    .cabecalho { 
-        width: 260px;
-        margin: 20px auto;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.521);
-    }
-    
-    .corpo{
-        width: 300px;
-        margin: 20px auto;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.521);
-    }
+/*CSS Modo noturno*/
 
-    section{
-        padding: 10px 30px;
+.cabecalho,
+.container{
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#darkModeToggle:checked ~ .cabecalho,
+#darkModeToggle:checked ~ .container {
+    background-color: #333;
+    color: #fff;
+}
+
+#darkModeToggle:checked ~ #darkModeLabel {
+    background-color: #222;
+}
+
+.light-theme #darkModeLabel {
+    background-color: #333;
+    color: #fff;
+}
+
+.light-theme .cabecalho,
+.light-theme .container {
+    background-color: #fff;
+    color: #333;
+}
+
+.dark-theme #darkModeLabel {
+    background-color: #222;
+}
+
+.dark-theme .cabecalho,
+.dark-theme .container {
+    background-color: #333;
+    color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+    .cabecalho{
+        max-width: 60%;
     }
-    
-    h2{
-        padding-bottom: 10px;
+    .container{
+        max-width: 70%;
+    }
+    h1{
+        font-size: 20px;
+    }
+    h2, caption{
         font-size: 18px;
     }
-    
-    li{
-        padding: 3px;
+    p, td, th, label,summary{
         font-size: 15px;
     }
-    
+    nav a{
+        padding-top: 10px;
+        font-size: 14px
+    }
+    li{
+        font-size: 15px;
+    }
+    .tabela-responsiva{
+        overflow-x: scroll;
+        max-width: 100%;
+    }
+
+}
+@media screen and (min-width:601px) and (max-width: 900px) {
+    .cabecalho{
+        max-width: 60%;
+    }
+    .container{
+        max-width: 70%;
+    }
     h1{
-        font-style: italic;
         font-size: 22px;
     }
-    
-    p{
-        font-size: 15px;
+    h2, caption{
+        font-size: 20px;
     }
-    
-   
-}
-
-@media screen and (min-width: 569px) and (max-width: 767px){
-    .cabecalho { 
-        width: 390px;
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.521);
+    p, td, th, label, summary{
+        font-size: 16px;
     }
-    
-    .corpo{
-        width: 500px;
-        margin: 10px auto;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.521);
+    nav a{
+        padding-top: 10px;
+        font-size: 16px
     }
-
-    section{
-        padding: 10px 30px;
-    }
-    
-    h2{
-        padding-bottom: 10px;
-        font-size: 23px;
-    }
-    
     li{
-        padding: 3px;
-        font-size: 18px;
+        font-size: 16px;
     }
-    
-    h1{
-        font-style: italic;
-        font-size: 27px;
-    }
-    
-    p{
-        font-size: 18px;
-    }
-    
-    .texto-alinhado{
-        text-align: center;
-        padding: 10px;
+    .tabela-responsiva{
+        overflow-x: scroll;
+        max-width: 100%;
     }
 
 }
-
