@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+</head>
+<body>
+    <header>
+        <h1>Exercícios Conceitos sobre Programação Web</h1>
+    </header>
+    <section>
+        <h2>Calculadora</h2>
+        <div>
+            <label for="num1">Digite o Primeiro Número:</label>
+            <input type="text" id="num1">
+        </div>
+        <div>
+            <label for="operador">Digite o Operador Aritmético:</label>
+            <input type="text" id="operador">
+        </div>
+        <div>
+            <label for="num2">Digite o Segundo Número:</label>
+            <input type="text" id="num2">
+        </div>
+        <div>
+            <button onclick="calcular()">Resultado</button>
+            <input type="text" id="resultado" readonly>
+        </div>
+        <div>
+            <label for="restoDivisao">Resto da Divisão:</label>
+            <input type="text" id="restoDivisao" readonly>
+        </div>
+    </section>
+    <section>
+        <h2>Valor Médio</h2>
+        <div>
+            <label for="numMedia1">Digite o Primeiro Número:</label>
+            <input type="text" id="numMedia1">
+        </div>
+        <div>
+            <label for="numMedia2">Digite o Segundo Número:</label>
+            <input type="text" id="numMedia2">
+        </div>
+        <div>
+            <label for="numMedia3">Digite o Terceiro Número:</label>
+            <input type="text" id="numMedia3">
+        </div>
+        <div>
+            <label for="numMedia4">Digite o Quarto Número:</label>
+            <input type="text" id="numMedia4">
+        </div>
+        <div>
+            <button onclick="calculaMedia()">Resultado</button>
+            <input type="text" id="resultadoMedia" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Porcentagem</h2>
+        <div>
+            <label for="numPorcentagem">Digite o Número:</label>
+            <input type="text" id="numPorcentagem">
+        </div>
+        <div>
+            <label for="porcentagem">Digite o Percentual:</label>
+            <input type="text" id="porcentagem">
+        </div>
+        <div>
+            <button onclick="calculaPercentual()">Resultado</button>
+            <input type="text" id="resultadoPercentual" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Operadores de Incremento (++) e Decremento(--)</h2>
+        <div>
+            <label for="numIncremento">Digite um Número:</label>
+            <input type="text" id="numIncremento">
+            <button onclick="incrementar()">Incrementar</button>
+            <input type="text" id="incremento" readonly>
+        </div>
+        <div>
+            <label for="numDecremento">Digite um Número:</label>
+            <input type="text" id="numDecremento">
+            <button onclick="decrementar()">Decrementar</button>
+            <input type="text" id="decremento" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Dobro do Incremento</h2>
+        <div>
+            <label for="numIncrementoDobro">Digite um Número:</label>
+            <input type="text" id="numIncrementoDobro">
+            <button onclick="dobroIncremento()">Incrementar</button>
+            <input type="text" id="incrementoDobrado" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Ordem das Operações</h2>
+        <div>
+            <p>3+5x23+5x2=<input type="text" id="resposta1" readonly> </p>
+            <button onclick="respostaConta1()">Resposta</button>
+            <p>(3+5)x2(3+5)x2=<input type="text" id="resposta2" readonly> </p>
+            <button onclick="respostaConta2()">Resposta</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Conversão de Celsius para Fahrenheit</h2>
+        <div>
+            <label for="converte">Digite um Valor:</label>
+            <input type="text" id="converte">
+            <button onclick="convercao()">Converter</button>
+            <input type="text" id="convertido" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Perímetro de um Retângulo</h2>
+        <div>
+            <label for="comprimento">Digite o Comprimento:</label>
+            <input type="text" id="comprimento"><br>
+            <label for="largura">Digite a Largura:</label>
+            <input type="text" id="largura"><br>
+            <button onclick="calculaPerimetro()">Perímetro do Retângulo:</button>
+            <input type="text" id="perimetro" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Área de um Círculo</h2>
+        <div>
+            <label for="raio">Digite o tamanho do Raio do Círculo:</label>
+            <input type="text" id="raio"><br>
+            <button onclick="calculaArea()">Área do Círculo:</button>
+            <input type="text" id="area" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Juros Simples</h2>
+        <div>
+            <label for="valor">Valor:</label>
+            <input type="text" id="valor"><br>
+            <label for="taxa">Taxa de juros mensal:</label>
+            <input type="text" id="taxa"><br>
+            <label for="periodo">Período:</label>
+            <input type="text" id="periodo"><br>
+            <button onclick="calculaJurosSimples()">Calcular Juros</button>
+            <input type="text" id="juros" readonly>
+        </div>
+    </section>
+
+    <section>
+        <h2>Desconto Em Produtos</h2>
+        <div>
+            <label for="valorProduto">Valor do Produto:</label>
+            <input type="text" id="valorProduto"><br>
+            <label for="desconto">Desconto:</label>
+            <input type="text" id="desconto"><br>
+            <button onclick="calculaDesconto()">Calcular Desconto</button>
+            <input type="text" id="descontoAplicado" readonly>
+        </div>
+    </section>
+    <section>
+        <h2>Cálculo De Exponenciação</h2>
+        <div>
+            <label for="numeroBase">Digite o Número da Base:</label>
+            <input type="text" id="numeroBase"><br>
+            <label for="numeroExpoente">Digite o Número do Expoente:</label>
+            <input type="text" id="numeroExpoente"><br>
+            <button onclick="calculaExponenciacao()">Calcular Exponenciação</button>
+            <input type="text" id="resultadoExpoente" readonly>
+        </div>
+    </section>
+        <h2>Raiz Quadrada</h2>
+        <div>
+            <label for="raizQuadrada">Digite o Número:</label>
+            <input type="text" id="raizQuadrada"><br>
+            <button onclick="encontraRaizQuadrada()">Enconte a Raiz Quadrada</button>
+            <input type="text" id="numeroRaizQuadrada" readonly>
+        </div>
+    </section>
+    
+    <section>
+        <h2>Comparação de Áreas</h2>
+        <div>
+            <label for="comprimentoRetangulo">Digite o Comprimento do Retângulo:</label>
+            <input type="text" id="comprimentoRetangulo"><br>
+            <label for="larguraRetangulo">Digite a Largura do Retângulo:</label>
+            <input type="text" id="larguraRetangulo"><br>
+            <label for="baseTriangulo">Digite o Base do Triângulo:</label>
+            <input type="text" id="baseTriangulo"><br>
+            <label for="alturaTriangulo">Digite a Altura do Triângulo:</label>
+            <input type="text" id="alturaTriangulo"><br>
+            <button onclick="calculaAreas()">Compare as Áreas</button>
+            <p id="comparaArea"></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Divisão com Arredondamento</h2>
+        <div>
+            <label for="numeroDivisao">Digite o Valor que deseja Dividir:</label>
+            <input type="text" id="numeroDivisao"><br>
+            <label for="divisor">Digite o Divisor do Valor:</label>
+            <input type="text" id="divisor"><br>
+            <button onclick="divisaoComArredondamento()">Divisão</button>
+            <p id="resultadoDivisao"></p>
+        </div>
+    </section>
+
+    <script src="exercicios.js"></script>
+</body>
+</html>
