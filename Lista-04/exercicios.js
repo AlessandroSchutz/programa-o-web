@@ -230,7 +230,7 @@ function calculaAreas(){
     let comparaArea = document.getElementById("comparaArea");
 
     if(isNaN(comprimentoRetangulo) || isNaN(larguraRetangulo) || isNaN(baseTriangulo) || isNaN(alturaTriangulo)){
-        comparaArea.value = "Valor Inválido";
+        comparaArea.innerHTML = "Valor Inválido";
         return;
     }
 
@@ -239,16 +239,13 @@ function calculaAreas(){
     let areaTriangulo = (baseTriangulo * alturaTriangulo) / 2;
 
     if(areaRetangulo === areaTriangulo){
-        let areasIguais = `As duas áreas tem o mesmo tamanho de: ${areaRetangulo}.`;
-        comparaArea.innerHTML = areasIguais;
+        comparaArea.innerHTML = `As duas áreas tem o mesmo tamanho de: ${areaRetangulo}.`;
 
     } else if(areaRetangulo > areaTriangulo){
-        let comparacaoRetangulo = `A área do Retângulo é maior, cujo tamanho é: ${areaRetangulo}.`;
-        comparaArea.innerHTML = comparacaoRetangulo;
+        comparaArea.innerHTML =`A área do Retângulo é maior, cujo tamanho é: ${areaRetangulo}.`;
 
     }else{
-        let comparacaoTriangulo = `A área do Triângulo é maior, cujo tamanho é: ${areaTriangulo}.`;
-        comparaArea.innerHTML = comparacaoTriangulo;
+        comparaArea.innerHTML =  `A área do Triângulo é maior, cujo tamanho é: ${areaTriangulo}.`;
     }  
 
 }
@@ -259,12 +256,164 @@ function divisaoComArredondamento(){
     let resultadoDivisao = document.getElementById("resultadoDivisao");
 
     if(isNaN(numeroDivisao) || isNaN(divisor)){
-        resultadoDivisao.value = "Número Inválido"
+        resultadoDivisao.innerHTML = "Número Inválido";
         return;
     }
 
     let divisao = numeroDivisao / divisor;
-    let respostaDivisao = `O resultado da divisão arredondado é: ${Math.round(divisao)}`;
-    resultadoDivisao.innerHTML = respostaDivisao;
+    resultadoDivisao.innerHTML = `O resultado da divisão arredondado é: ${Math.round(divisao)}`;
+
+}
+
+function parOuImpar(){
+    let numParOuImpar = parseFloat(document.getElementById("numParOuImpar").value);
+    let resultadoParOuImpar = document.getElementById("resultadoParOuImpar");
+
+    if(isNaN(numParOuImpar)){
+        resultadoParOuImpar.innerHTML = "Número Inválido";
+        return;
+    }
+
+    if(numParOuImpar % 2 === 0){
+        resultadoParOuImpar.innerHTML = `${numParOuImpar} é um número PAR.`;
+    }else{
+        resultadoParOuImpar.innerHTML = `${numParOuImpar} é um número IMPAR.`;
+    }
+
+}
+
+function comparacaoSimples(){
+    let num1Compara = parseFloat(document.getElementById("num1Compara").value);
+    let num2Compara = parseFloat(document.getElementById("num2Compara").value);
+    let resultadoComparacao = document.getElementById("resultadoComparacao");
+
+    if(isNaN(num1Compara) || isNaN(num2Compara)){
+        resultadoComparacao.innerHTML = "Número Inválido";
+        return;
+    }
+
+    if(num1Compara === num2Compara){
+        resultadoComparacao.innerHTML = `${num1Compara} e ${num2Compara} são IGUAIS.`
+    }else if(num1Compara > num2Compara){
+        resultadoComparacao.innerHTML = `${num1Compara} é MAIOR que ${num2Compara}.`
+    }else{
+        resultadoComparacao.innerHTML = `${num2Compara} é MAIOR que ${num1Compara}.`
+    }
+}
+
+function verificaIdade(){
+    let numIdade = parseFloat(document.getElementById("numIdade").value);
+    let resultadoIdade = document.getElementById("resultadoIdade");
+
+    if(isNaN(numIdade)){
+        resultadoIdade.innerHTML = "Número Inválido"
+        return;
+    }
+
+    if(numIdade >= 18){
+        resultadoIdade.innerHTML = `Maior de Idade.`
+    }else{
+        resultadoIdade.innerHTML = `Menor de Idade.`
+    }
+
+}
+
+function verificaNota(){
+    let numNota = parseFloat(document.getElementById("numNota").value);
+    let resultadoNota = document.getElementById("resultadoNota");
+
+    if(isNaN(numNota)){
+        resultadoNota.innerHTML = "Número Inválido"
+        return;
+    }
+
+    if(numNota >= 90){
+        resultadoNota.innerHTML = `Nota "A"`
+    }else if(numNota >= 80){
+        resultadoNota.innerHTML = `Nota "B"`
+    }else if(numNota >= 70){
+        resultadoNota.innerHTML = `Nota "C"`
+    }else if(numNota >= 60){
+        resultadoNota.innerHTML = `Nota "D"`
+    }else{
+        resultadoNota.innerHTML = `Nota "F"`
+    }
+
+}
+
+function verificaDia(){
+    let numDia = parseFloat(document.getElementById("numDia").value);
+    let resultadoDia = document.getElementById("resultadoDia");
+
+    if(isNaN(numDia)){
+        resultadoDia.innerHTML = "Valor Inválido"
+        return; 
+    }
+
+    switch (numDia){
+        case 1:
+            resultadoDia.innerHTML = `Dia ${numDia} é Domingo.`;
+            break;
+        case 2:
+            resultadoDia.innerHTML = `Dia ${numDia} é Segunda.`;
+            break;
+        case 3:
+            resultadoDia.innerHTML = `Dia ${numDia} é Terça.`;
+            break;
+        case 4:
+            resultadoDia.innerHTML = `Dia ${numDia} é Quarta.`;
+            break;
+        case 5:
+            resultadoDia.innerHTML = `Dia ${numDia} é Quinta.`;
+            break;
+        case 6:
+            resultadoDia.innerHTML = `Dia ${numDia} é Sexta.`;
+            break;
+        case 7:
+            resultadoDia.innerHTML = `Dia ${numDia} é Sábado.`;
+            break;
+        default:
+            resultadoDia.innerHTML = `Dia ${numDia} não corresponde a nenhum dia da semana`
+    }
+}
+
+function verificaValor(){
+    let numA = parseFloat(document.getElementById("numA").value);
+    let numB = parseFloat(document.getElementById("numB").value);
+    let resultadoValor = document.getElementById("resultadoValor");
+
+    if(isNaN(numA) || isNaN(numB)){
+        resultadoValor.innerHTML = "Valor Inválido"
+        return; 
+    }
+    if(numA + numB === 25){
+        resultadoValor.innerHTML = `A + B é 25.` 
+    }else if(numA + numB > 25){
+        resultadoValor.innerHTML = "A + B é maior que 25"
+    }else{
+        resultadoValor.innerHTML = "A + B é menor que 25"
+    }
+
+}
+
+function verificaEstacao(){
+    let numEstacao = parseFloat(document.getElementById("numEstacao").value);
+    let resultadoEstacao = document.getElementById("resultadoEstacao");
+
+    if(isNaN(numEstacao)){
+        resultadoEstacao.innerHTML = "Valor Inválido"
+        return; 
+    }
     
+    if(numEstacao >= 1 && numEstacao < 3 || numEstacao === 12){
+        resultadoEstacao.innerHTML = "Estamos no Verão";
+    }else if(numEstacao >= 3 && numEstacao < 6){
+        resultadoEstacao.innerHTML = "Estamos no Outono";
+    }else if(numEstacao >= 6 && numEstacao < 9){
+        resultadoEstacao.innerHTML = "Estamos no Inverno";
+    }else if(numEstacao >= 9 && numEstacao < 12){
+        resultadoEstacao.innerHTML = "Estamos no Primavera";
+    }else{
+        resultadoEstacao.innerHTML = "Não corresponde a uma estação do ano."
+    }
 }
