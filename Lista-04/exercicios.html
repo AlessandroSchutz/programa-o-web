@@ -287,6 +287,72 @@
             <p id="resultadoEstacao"></p>
         </div>
     </section>
+
+    <section>
+        <h2>Descontos em Compras</h2>
+        <div>
+            <label for="valorCompra">Digite o Valor da Compra:</label>
+            <input type="text" id="valorCompra"><br>
+            <button onclick="descontoCompra()">Veja seu Desconto</button>
+            <p id="valorDescontado"></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Anos Bissextos</h2>
+        <div>
+            <label for="ano">Digite o ano:</label>
+            <input type="text" id="ano"><br>
+            <button onclick="calculaAnoBissexto()">Verifica Ano Bissexto</button>
+            <p id="anoBissexto"></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Comparação de Strings</h2>
+        <div>
+            <label for="cor">Digite a cor:</label>
+            <input type="text" id="cor"><br>
+            <button onclick="verificaString()">Verifica String</button>
+            <p id="resultadoCor"></p>
+        </div>
+    </section>
+    <section>
+        <h2>Calculadora de "Como você está se sentindo hoje?"</h2>
+        <p>
+            O usuário deve inserir valores numéricos (de 1 a 10) para diversas situações, e a calculadora vai dizer como ele provavelmente está se sentindo hoje.
+        </p>
+
+        <label for="pergunta1">O quanto você se sentiu bem ao acordar hoje?</label>
+        <input type="text" id="pergunta1"><br>
+        <label for="pergunta2">O quanto você gostou do seu café da manhã (ou outra refeição matinal) na mesma escala?</label>
+        <input type="text" id="pergunta2"><br>
+        <label for="pergunta3">O quanto o trânsito (ou a viagem até o trabalho/escola) foi tranquila?</label>
+        <input type="text" id="pergunta3"><br>
+        <label for="pergunta4">O quanto você está animado com o que vai fazer hoje?</label>
+        <input type="text" id="pergunta4"><br>
+        <button onclick="calculaSentimentos()">Calcule Como Você Se Sente</button>
+        <p id="comoVoceEsta"></p>
+    </section>
+
+    <section>
+        <h2>Calculadora de "Viagem Espacial"</h2>
+        <p>
+            Imaginem se tivéssemos a capacidade de viajar rapidamente pelo nosso Sistema Solar. Esta calculadora divertida irá ajudar a determinar quanto tempo levaria para chegar a diferentes planetas, dependendo da velocidade da sua "nave espacial".
+        </p>
+        <label for="velocidadeNave">Digite a velocidade da sua nave (em km/h):</label>
+        <input type="text" id="velocidadeNave"><br>
+        <h3>Escolha o planeta que deseja viajar:</h3>
+        <button value="1" onclick="calculaTempoViagem(this.value)">Mercúrio</button>
+        <button value="2" onclick="calculaTempoViagem(this.value)">Vênus</button>
+        <button value="3" onclick="calculaTempoViagem(this.value)">Marte</button>
+        <button value="4" onclick="calculaTempoViagem(this.value)">Júpiter</button>
+        <button value="5" onclick="calculaTempoViagem(this.value)">Saturno</button>
+        <button value="6" onclick="calculaTempoViagem(this.value)">Urano</button>
+        <button value="7" onclick="calculaTempoViagem(this.value)">Netuno</button>
+        <button value="8" onclick="calculaTempoViagem(this.value)">Plutão</button><br>
+        <p id="tempoViagem"></p>
+    </section>
     <script src="exercicios.js"></script>
 </body>
 </html>

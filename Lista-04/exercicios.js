@@ -417,3 +417,125 @@ function verificaEstacao(){
         resultadoEstacao.innerHTML = "Não corresponde a uma estação do ano."
     }
 }
+
+function descontoCompra(){
+    let valorCompra = parseFloat(document.getElementById("valorCompra").value);
+    let valorDescontado = document.getElementById("valorDescontado");
+
+    if(isNaN(valorCompra)){
+        valorDescontado.innerHTML = "Valor Inválido"
+        return; 
+    }
+
+    if(valorCompra > 100 && valorCompra <= 500){
+        let valor = valorCompra - (valorCompra * 0.1);
+        valorDescontado.innerHTML = `O Valor das suas compras é de R$${valor}`;
+    }else if(valorCompra > 500){
+        let valor = valorCompra - (valorCompra * 0.2);
+        valorDescontado.innerHTML = `O Valor das suas compras é de R$${valor}`;
+    }else{
+        valorDescontado.innerHTML = `O Valor das suas compras não atingiu o valor mínimo para receber descontos. O Valor das suas compras é de R$${valorCompra}`
+    }
+
+}
+
+function calculaAnoBissexto(){
+    let ano = parseFloat(document.getElementById("ano").value);
+    let anoBissexto = document.getElementById("anoBissexto");
+
+    if(isNaN(ano)){
+        anoBissexto.innerHTML = "Valor Inválido"
+        return; 
+    }
+    if(ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0){
+        anoBissexto.innerHTML = `${ano} é um ano bissexto`
+    }else{
+        anoBissexto.innerHTML = `${ano} não é um ano bissexto`
+    }
+    
+}
+
+function verificaString(){
+    let cor = document.getElementById("cor").value;
+    let resultadoCor = document.getElementById("resultadoCor");
+
+    if(cor === "azul"){
+        resultadoCor.innerHTML = `O céu é azul.`;
+    }else{
+        resultadoCor.innerHTML = `A cor não é azul.`
+    }
+}
+
+function calculaSentimentos(){
+    let pergunta1 = parseInt(document.getElementById("pergunta1").value);
+    let pergunta2 = parseInt(document.getElementById("pergunta2").value);
+    let pergunta3 = parseInt(document.getElementById("pergunta3").value);
+    let pergunta4 = parseInt(document.getElementById("pergunta4").value);
+    let comoVoceEsta = document.getElementById("comoVoceEsta");
+
+    if(isNaN(pergunta1) || isNaN(pergunta2) || isNaN(pergunta3) || isNaN(pergunta4)){
+        comoVoceEsta.innerHTML = "Valor Inválido";
+        return;
+    }
+    let calculoPerguntas = pergunta1 + pergunta2 + pergunta3 + pergunta4;
+
+    if(calculoPerguntas >= 4 && calculoPerguntas <= 20){
+        comoVoceEsta.innerHTML = `Parece que você está tendo um dia ruim! Relaxe e respire.`
+    }else if(calculoPerguntas >= 21 && calculoPerguntas <= 30){
+        comoVoceEsta.innerHTML = `Seu dia está OK! Mantenha o ânimo.`
+    }else if(calculoPerguntas >= 31 && calculoPerguntas <= 40){
+        comoVoceEsta.innerHTML = `Você está tendo um ótimo dia! Continue assim!`
+    }else{
+        comoVoceEsta.innerHTML = `Seus valores estão fora do padrão, procure ajuda!`
+    }
+}
+
+function calculaTempoViagem(planetaSelecionado){
+    let velocidadeNave = parseInt(document.getElementById("velocidadeNave").value);
+    let tempoViagem = document.getElementById("tempoViagem");
+
+    if(isNaN(velocidadeNave)){
+        tempoViagem.innerHTML = "Valor Inválido";
+        return;
+    }
+
+    let tempo = 0;
+
+    switch (parseInt(planetaSelecionado)){
+        case 1:
+            tempo = 77000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Mercúrio é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        case 2:
+            tempo = 41000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Vênus é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        
+        case 3:
+            tempo = 78000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Júpiter é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        case 4:
+            tempo = 628000000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Saturno é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        case 5:
+            tempo = 1275000000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Urano é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        case 6:
+            tempo = 2724000000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Netuno é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        case 7:
+            tempo = 4351000000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Marte é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        case 8:
+            tempo = 5906000000000 / velocidadeNave;
+            tempoViagem.innerHTML = `A duração da sua viagem até Plutão é de ${tempo} horas, ou ${(tempo/24).toFixed(2)} dias.`
+            break;
+        default:
+            tempoViagem.innerHTML = `Não foi possível calcular.`
+    }
+}
