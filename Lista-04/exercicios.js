@@ -539,3 +539,22 @@ function calculaTempoViagem(planetaSelecionado){
             tempoViagem.innerHTML = `Não foi possível calcular.`
     }
 }
+
+function calculadoraJs(value){
+    document.getElementById("display").value += value;
+}
+
+function limpaDisplay(){
+    document.getElementById("display").value = "";
+}
+
+function calculaResultado(){
+    try{
+        const expressao = document.getElementById("display").value;;
+        const result = eval(expressao);
+        document.getElementById("display").value = result;
+    }catch(error){  
+        document.getElementById("display").value = "Erro";
+
+    }
+}

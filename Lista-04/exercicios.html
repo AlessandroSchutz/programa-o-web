@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Simples</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -343,15 +344,52 @@
         <label for="velocidadeNave">Digite a velocidade da sua nave (em km/h):</label>
         <input type="text" id="velocidadeNave"><br>
         <h3>Escolha o planeta que deseja viajar:</h3>
-        <button value="1" onclick="calculaTempoViagem(this.value)">Mercúrio</button>
-        <button value="2" onclick="calculaTempoViagem(this.value)">Vênus</button>
-        <button value="3" onclick="calculaTempoViagem(this.value)">Marte</button>
-        <button value="4" onclick="calculaTempoViagem(this.value)">Júpiter</button>
-        <button value="5" onclick="calculaTempoViagem(this.value)">Saturno</button>
-        <button value="6" onclick="calculaTempoViagem(this.value)">Urano</button>
-        <button value="7" onclick="calculaTempoViagem(this.value)">Netuno</button>
-        <button value="8" onclick="calculaTempoViagem(this.value)">Plutão</button><br>
+        <div class="fileira">
+            <button class="planetas mercurio" value="1" onclick="calculaTempoViagem(this.value)">Mercúrio</button>
+            <button class="planetas venus" value="2" onclick="calculaTempoViagem(this.value)">Vênus</button>
+            <button class="planetas marte" value="3" onclick="calculaTempoViagem(this.value)">Marte</button>
+            <button class="planetas jupiter" value="4" onclick="calculaTempoViagem(this.value)">Júpiter</button>    
+        </div>
+        <div class="fileira">
+            <button class="planetas saturno" value="5" onclick="calculaTempoViagem(this.value)">Saturno</button>
+            <button class="planetas urano" value="6" onclick="calculaTempoViagem(this.value)">Urano</button>
+            <button class="planetas netuno" value="7" onclick="calculaTempoViagem(this.value)">Netuno</button>
+            <button class="planetas plutao" value="8" onclick="calculaTempoViagem(this.value)">Plutão</button>
+        </div>
         <p id="tempoViagem"></p>
+    </section>
+
+    <section>
+        <h2>Faça uma calculadora em Javascript. Se conseguir acrescente HTML e CSS</h2>
+        <div class="calculadoraJavaScript">
+            <input type="text" id="display" disabled>
+            <div class="buttons">
+                <div class="fileira">
+                    <button class="botao" onclick="calculadoraJs('1')">1</button>
+                    <button class="botao" onclick="calculadoraJs('2')">2</button>
+                    <button class="botao" onclick="calculadoraJs('3')">3</button>
+                    <button class="botao" onclick="calculadoraJs('+')">+</button>
+                </div>
+                <div class="fileira">
+                    <button class="botao" onclick="calculadoraJs('4')">4</button>
+                    <button class="botao" onclick="calculadoraJs('5')">5</button>
+                    <button class="botao" onclick="calculadoraJs('6')">6</button>
+                    <button class="botao" onclick="calculadoraJs('-')">-</button>
+                </div>
+                <div class="fileira">
+                    <button class="botao" onclick="calculadoraJs('7')">7</button>
+                    <button class="botao" onclick="calculadoraJs('8')">8</button>
+                    <button class="botao" onclick="calculadoraJs('9')">9</button>
+                    <button class="botao" onclick="calculadoraJs('*')">x</button>
+                </div>
+                <div class="fileira">
+                    <button class="botao" onclick="calculadoraJs('0')">0</button>
+                    <button class="botao" onclick="limpaDisplay()">C</button>
+                    <button class="botao" onclick="calculaResultado()">=</button>
+                    <button class="botao" onclick="calculadoraJs('/')">÷</button> 
+                </div>
+            </div>
+        </div>
     </section>
     <script src="exercicios.js"></script>
 </body>
