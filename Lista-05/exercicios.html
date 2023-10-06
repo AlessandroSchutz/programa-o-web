@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 05</title>
+</head>
+<body>
+    <header>
+        <h1>Exercícios Javascript em sala - Manipulação de Dados</h1>
+    </header>
+    <section>
+        <h2>Manipulação Avançada de Dados:</h2>
+        <div>
+            <h3>Strings e Expressões Regulares:</h3>
+            <label for="palavrasENumeros">Digite algumas palavras e números:</label><br>
+            <textarea  id="palavrasENumeros" cols="30" rows="6"></textarea><br>
+            <button onclick="retiraNumerosDaString()">Extrair Números</button>
+            <p id="numerosExtraidos"></p>
+        </div>
+
+        <div>
+            <h3>Funções e Escopo:</h3>
+            <label for="numeroMaisDois">Digite um número:</label>
+            <input type="text" id="numeroMaisDois"><br>
+            <button onclick="aumentaDois()">Aumenta</button>
+            <p id="numeroAumentado"></p>
+        </div>
+
+        <div>
+            <h3>Funções de Ordem Superior:</h3>
+            <label for="numerosPotencia">Digite números separados por vírgulas:</label>
+            <input type="text" id="numerosPotencia"><br>
+            <button onclick="elevaPotenciaDois()">Eleve a Potência de 2</button>
+            <p id="numeroElevado"></p>
+
+        </div>
+    </section>
+    <section>
+        <h2>Objetos Avançados:</h2>
+        <div>
+            <h3>Protótipos:</h3>
+            <label for="marca">Digite a marca do Carro:</label>
+            <input type="text" id="marca"><br>
+            <label for="modelo">Digite o modelo do Carro</label>
+            <input type="text" id="modelo"><br>
+            <label for="anoDoCarro">Digite o ano do Carro</label>
+            <input type="text" id="anoDoCarro"><br>
+            <button onclick="ligarCarro()">Ligar Carro</button>
+            <p id="exibeCarro"></p>
+        </div>  
+        <div>
+            <h3>Destructuring e Spread:</h3>
+            <form id="formulario">
+                <label for="nome">Digite seu Nome:</label>
+                <input type="text" id="nome" required><br>
+
+                <label for="idade">Digite sua Idade:</label>
+                <input type="text" id="idade" required><br>
+
+                <label for="email">Digite seu E-mail:</label>
+                <input type="email" id="email" required><br>
+
+                <input type="submit" value="Enviar">
+            </form>
+            <p id="exibeFormularioDesestruturado"></p>
+            <p id="exibeCopiaDaPessoa"></p>
+        </div>      
+    </section>
+
+
+
+
+
+
+
+    <script src="manipulacaoAvancadaDeDados.js"></script>
+    <script src="objetosAvancados.js"></script>
+</body>
+</html>
