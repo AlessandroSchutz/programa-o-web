@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+h1 {
+    color: #333;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+}
+
+option {
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+li:last-child {
+    border: none;
+}
+
+.textoItem{
+    padding: 7px;
+    margin: auto;
+}
+
+.textoItem:focus{
+    border: 2px solid;
+    border-color: #05b8ff;
+    border-radius: 5px;
+    outline: none;
+}
+
+#adicionarTarefa{
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#adicionarTarefa:hover{
+    background-color: #02b302;
+}
+
+.seletores{
+    margin-right: 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.style-checkbox{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    font-size: 20px;
+}
+
+.style-checkbox input{
+    display: none;
+}
+
+.style-checkbox .fa-circle-check{
+    color: #333;
+}
+
+.style-checkbox input:checked + .fa-circle-check{
+    color: #02b302;
+}
+
+.editarItem{
+    padding: 0;
+    border: none;
+    margin: 10px;
+    color: #05b8ff;
+    background-color: #fff;
+}
+
+.excluirItem{
+    padding: 0;
+    border: none;
+    margin-right: 10px;
+    color: #f50000;
+    background-color: #fff;
+}
+
+.itemMarcado{
+    background-color: #02b302;
+}
+
+.itemDesmarcado{
+    background-color: #fff;
+
+}

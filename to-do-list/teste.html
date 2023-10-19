@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Teste</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li:last-child {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="tarefa" placeholder="Adicione uma nova tarefa">
+        <button id="adicionarTarefa">Adicionar</button>
+        <ul id="listaDeTarefas">
+            <!-- Tarefas serão adicionadas aqui -->
+        </ul>
+    </div>
+    <script>
+        
+    document.addEventListener("DOMContentLoaded", function(){
+    const tarefaAtribuida = document.getElementById("tarefa");
+    const adicionarTarefa = document.getElementById("adicionarTarefa");
+    const listaDeTarefas = document.getElementById("listaDeTarefas")
+    
+    function adicionarItem(textoTarefa, marcado = false){
+        const itemTarefa = document.createElement("li");
+        const id = Date.now();
+        itemTarefa.setAttribute("data-id", id);
+
+        itemTarefa.innerHTML = `
+            <input type="checkbox" ${marcado ? "checked" : ""}>
+            <span>${textoTarefa}</span>                
+            <button class="excluirItem">Excluir</button>
+        `;
+
+        listaDeTarefas.appendChild(itemTarefa);
+
+        const botaoExcluir = itemTarefa.querySelector(".excluirItem");
+        botaoExcluir.addEventListener("click", function(){
+            itemTarefa.remove();
+            atualizarLocalStorage();
+        });
+
+        const itemMarcado = itemTarefa.querySelector("input[type='checkbox']");
+        itemMarcado.addEventListener("change", function () {
+            const marcado = itemMarcado.checked;
+
+            atualizarLocalStorage();
+        });
+    }
+
+
+    function atualizarLocalStorage(){
+        const tarefas = [];
+        const itens = listaDeTarefas.querySelectorAll("li");
+        itens.forEach(function (item){
+            const marcado = item.querySelector("input[type='checkbox'").checked;
+            const textoTarefa = item.querySelector("span").textContent;
+            const id = item.getAttribute("data-id");
+            tarefas.push({id, textoTarefa, marcado });
+        });
+        localStorage.setItem("tarefas", JSON.stringify(tarefas));
+    }
+
+    adicionarTarefa.addEventListener("click", function(){
+        let textoTarefa = tarefaAtribuida.value.trim();
+        if(textoTarefa !== ""){
+            adicionarItem(textoTarefa);
+            tarefaAtribuida.value = "";
+            atualizarLocalStorage();
+        }
+    });
+
+    tarefaAtribuida.addEventListener("keypress", function(Event){
+        if(Event.key === "Enter"){
+            adicionarTarefa.click();
+        }
+    });
+
+    const tarefasArmazenadas = JSON.parse(localStorage.getItem("tarefas"));
+    if (tarefasArmazenadas){
+        tarefasArmazenadas.forEach(function (tarefa){
+            adicionarItem(tarefa.textoTarefa, tarefa.marcado);
+        });
+    }
+});
+
+
+
+    </script>
+</body>
+
+</html>
