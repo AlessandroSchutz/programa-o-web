@@ -5,9 +5,10 @@ body {
 
 .container {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 5px rgba(51, 51, 51, 0.671);
+    border: 2px solid #333;
     border-radius: 5px;
 }
 
@@ -18,12 +19,27 @@ h1 {
 input[type="text"] {
     width: 90%;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+    margin: 20px;
+    border: 2px solid #333;
     border-radius: 5px;
 }
 
-select {
+ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+}
+
+li {
+    border: 2px solid #333;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#filtroTarefas {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -32,26 +48,10 @@ select {
     font-size: 14px;
 }
 
-option {
+.opcaofiltro {
     font-size: 14px;
     background-color: #333;
     color: #fff;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 5px;
-}
-
-li:last-child {
-    border: none;
 }
 
 .textoItem{
@@ -70,6 +70,7 @@ li:last-child {
     background-color: #333;
     color: #fff;
     font-size: 14px;
+    margin-bottom: 10px;
     border: none;
     margin-right: 10px;
     padding: 10px 20px;
@@ -81,13 +82,15 @@ li:last-child {
 }
 
 .seletores{
-    margin-right: 0;
-    padding: 20px;
+    margin: 5px;
+    margin-right: 4px;
+    padding: 8px;
+    border: 2px solid #333;
     background-color: #fff;
     border-radius: 5px;
 }
 
-.style-checkbox{
+.estilo-checkbox{
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -95,15 +98,19 @@ li:last-child {
     font-size: 20px;
 }
 
-.style-checkbox input{
+.estilo-checkbox input{
     display: none;
 }
 
-.style-checkbox .fa-circle-check{
+.estilo-checkbox .fa-circle-check{
     color: #333;
 }
 
-.style-checkbox input:checked + .fa-circle-check{
+.estilo-checkbox input:checked + .fa-circle-check{
+    color: #02b302;
+}
+
+.fa-circle-check:hover{
     color: #02b302;
 }
 
@@ -115,6 +122,11 @@ li:last-child {
     background-color: #fff;
 }
 
+.editarItem:hover{
+    color: #069ad4;
+    cursor: pointer;
+}
+
 .excluirItem{
     padding: 0;
     border: none;
@@ -123,11 +135,30 @@ li:last-child {
     background-color: #fff;
 }
 
-.itemMarcado{
-    background-color: #02b302;
+.excluirItem:hover{
+    color: #d40000;
+    cursor: pointer;
 }
 
-.itemDesmarcado{
-    background-color: #fff;
-
+.filtroDePrioridades{
+    border: solid 2px #333;
+    border-radius: 5px;
+    padding: 3px;
+    font-weight: bolder;
 }
+
+.filtroDePrioridades:hover{
+    cursor: pointer;
+}
+
+.prioridade1 {
+    background-color: #FF5733;
+  }
+  
+  .prioridade2 {
+    background-color: #FFC300; 
+  }
+  
+  .prioridade3 {
+    background-color: #6EF264; 
+  }

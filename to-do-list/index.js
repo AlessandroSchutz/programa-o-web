@@ -3,17 +3,26 @@ document.addEventListener("DOMContentLoaded", function(){
     const adicionarTarefa = document.getElementById("adicionarTarefa");
     const listaDeTarefas = document.getElementById("listaDeTarefas")
     
-    function adicionarItem(textoTarefa, marcado = false){
+    const tarefas = [];
+
+    function adicionarItem(textoTarefa, marcado = false, prioridade = "prioridade1"){
         const itemTarefa = document.createElement("li");
+
+        itemTarefa.classList.add(prioridade);
         itemTarefa.innerHTML = `
             <span class="textoItem">${textoTarefa}</span>
             <div class="seletores">
-                <label class="style-checkbox">
+                <label class="estilo-checkbox">
                     <input type="checkbox" ${marcado ? "checked" : ""}>
                     <i class="fa-solid fa-circle-check fa-lg"></i>
                 </label>
                 <button class="editarItem fa-solid fa-pen-to-square fa-xl"></button>                
                 <button class="excluirItem fa-solid fa-circle-xmark fa-xl"></button>
+                <select class="filtroDePrioridades">
+                    <option value="prioridade1" ${prioridade === "prioridade1" ? "selected" : ""}>Prioridade 1</option>
+                    <option value="prioridade2" ${prioridade === "prioridade2" ? "selected" : ""}>Prioridade 2</option>
+                    <option value="prioridade3" ${prioridade === "prioridade3" ? "selected" : ""}>Prioridade 3</option>
+                </select>
             </div>  
         `;
 
@@ -46,6 +55,14 @@ document.addEventListener("DOMContentLoaded", function(){
             atualizarLocalStorage();
         });
 
+        const selecaoPrioridade = itemTarefa.querySelector(".filtroDePrioridades");
+        selecaoPrioridade.addEventListener("change", function(){
+            const corPrioridade = selecaoPrioridade.value;
+            itemTarefa.classList.remove("prioridade1", "prioridade2", "prioridade3");
+            itemTarefa.classList.add(corPrioridade);
+            atualizarLocalStorage();
+        });
+
         const itemMarcado = itemTarefa.querySelector("input[type='checkbox']");
         itemMarcado.addEventListener("change", function () {
             const marcado = itemMarcado.checked;
@@ -60,16 +77,23 @@ document.addEventListener("DOMContentLoaded", function(){
         });     
     }
 
+    /*-----------------------------------*/
 
     function atualizarLocalStorage(){
-        const tarefas = [];
         const itens = listaDeTarefas.querySelectorAll("li");
+        tarefas.length = 0;
         itens.forEach(function (item){
             const marcado = item.querySelector("input[type='checkbox'").checked;
             const textoTarefa = item.querySelector("span").textContent;
-            const classes = Array.from(item.classList);
-            tarefas.push({ textoTarefa, marcado, classes });
+            const itemSelecionado = Array.from(item.classList);
+            const prioridade = item.querySelector(".filtroDePrioridades").value;
+            tarefas.push({ textoTarefa, marcado, itemSelecionado, prioridade });
         });
+        tarefas.sort((a, b) =>{
+            if(a.prioridade < b.prioridade)return -1;
+            if(a.prioridade > b.prioridade)return 1;
+            return 0;
+        })
         localStorage.setItem("tarefas", JSON.stringify(tarefas));
     }
 
@@ -91,10 +115,10 @@ document.addEventListener("DOMContentLoaded", function(){
     const tarefasArmazenadas = JSON.parse(localStorage.getItem("tarefas"));
     if (tarefasArmazenadas){
         tarefasArmazenadas.forEach(function (tarefa){
-            adicionarItem(tarefa.textoTarefa, tarefa.marcado);
+            adicionarItem(tarefa.textoTarefa, tarefa.marcado, tarefa.prioridade);
             const itemTarefa = listaDeTarefas.lastChild;
-            if(tarefa.classes && tarefa.classes.length > 0) {
-                itemTarefa.classList.add(...tarefa.classes);
+            if(tarefa.itemSelecionado && tarefa.itemSelecionado.length > 0) {
+                itemTarefa.classList.add(...tarefa.itemSelecionado);
             }
         });
     }
@@ -117,6 +141,5 @@ document.getElementById("filtroTarefas").addEventListener("change", function(){
             item.style.display = "none";
 
         }
-    }
-    
-})
+    } 
+});
