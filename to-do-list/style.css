@@ -61,6 +61,32 @@ li {
     border-radius: 5px;
 }
 
+.divData{
+    padding-bottom: 20px;
+}
+
+.textoData{
+    font-weight: bold;
+    margin: 0;
+}
+
+#dataVencimento{
+    background-color: #ccc;
+    border: 2px solid #333;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    color: #333;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#dataVencimento:focus {
+    border-color: #05b8ff;
+  } 
 
 #filtroTarefas {
     padding: 10px;

@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", function(){
     const tarefaAtribuida = document.getElementById("tarefa");
+    const dataVencimentoInput = document.getElementById("dataVencimento");
     const adicionarTarefa = document.getElementById("adicionarTarefa");
-    const listaDeTarefas = document.getElementById("listaDeTarefas")
-    
+    const listaDeTarefas = document.getElementById("listaDeTarefas");
+
     const tarefas = [];
 
-    function adicionarItem(textoTarefa, marcado = false, prioridade = "prioridade1"){
+    function adicionarItem(textoTarefa, dataVencimento, marcado = false, prioridade = "prioridade1"){
         try{
             const itemTarefa = document.createElement("li");
 
             itemTarefa.classList.add(prioridade);
             itemTarefa.innerHTML = `
                 <span class="textoItem">${textoTarefa}</span>
+                <p class="textoData">${dataVencimento}</p> 
                 <div class="seletores">
                     <label class="estilo-checkbox">
                         <input type="checkbox" ${marcado ? "checked" : ""}>
@@ -86,11 +88,12 @@ document.addEventListener("DOMContentLoaded", function(){
         const itens = listaDeTarefas.querySelectorAll("li");
         tarefas.length = 0;
         itens.forEach(function (item){
-            const marcado = item.querySelector("input[type='checkbox'").checked;
             const textoTarefa = item.querySelector("span").textContent;
+            const dataVencimento = item.querySelector("p").textContent;
+            const marcado = item.querySelector("input[type='checkbox'").checked;
             const itemSelecionado = Array.from(item.classList);
             const prioridade = item.querySelector(".filtroDePrioridades").value;
-            tarefas.push({ textoTarefa, marcado, itemSelecionado, prioridade });
+            tarefas.push({ textoTarefa, dataVencimento, marcado, itemSelecionado, prioridade});
         });
         tarefas.sort((a, b) =>{
             if(a.prioridade < b.prioridade)return -1;
@@ -111,9 +114,11 @@ document.addEventListener("DOMContentLoaded", function(){
     adicionarTarefa.addEventListener("click", function(){
         try{
             let textoTarefa = tarefaAtribuida.value.trim();
+            let dataVencimento = dataVencimentoInput.value;
             if(textoTarefa !== ""){
-                adicionarItem(textoTarefa);
+                adicionarItem(textoTarefa, dataVencimento);
                 tarefaAtribuida.value = "";
+                dataVencimentoInput.value = "";
                 atualizarLocalStorage();
             }
         }catch (error){
@@ -130,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const tarefasArmazenadas = JSON.parse(localStorage.getItem("tarefas"));
     if (tarefasArmazenadas){
         tarefasArmazenadas.forEach(function (tarefa){
-            adicionarItem(tarefa.textoTarefa, tarefa.marcado, tarefa.prioridade);
+            adicionarItem(tarefa.textoTarefa, tarefa.dataVencimento, tarefa.marcado, tarefa.prioridade);
             const itemTarefa = listaDeTarefas.lastChild;
             if(tarefa.itemSelecionado && tarefa.itemSelecionado.length > 0) {
                 itemTarefa.classList.add(...tarefa.itemSelecionado);

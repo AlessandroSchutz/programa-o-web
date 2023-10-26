@@ -12,12 +12,17 @@
     <div class="container">
         <h1>To Do List</h1>
         <input type="text" id="tarefa">
-        <button id="adicionarTarefa">Adicionar</button>
+        <div class="divData">
+            <p class="textoData">Selecione a Data de Vencimento</p>
+            <input type="date" id="dataVencimento">
+        </div>
+        
+        <button id="adicionarTarefa">Adicionar Tarefa</button>
         <select id="filtroTarefas">
             <option class="opcaofiltro" value="todasTarefas">Todas as Tarefas</option>
             <option class="opcaofiltro" value="tarefasPendentes">Tarefas Pendentes</option>
             <option class="opcaofiltro" value="tarefasConcluidas">Tarefas Concluidas</option>
-        </select>
+        </select>     
         <table>
             <caption>Contador de Tarefas</caption>
                 <tr>
@@ -35,5 +40,6 @@
         </ul>
     </div>
     <script src="index.js"></script>
+
 </body>
 </html>
