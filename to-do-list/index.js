@@ -34,18 +34,29 @@ document.addEventListener("DOMContentLoaded", function(){
             const botaoEditar = itemTarefa.querySelector(".editarItem");
             botaoEditar.addEventListener("click", function(){
                 const textoItem = itemTarefa.querySelector(".textoItem");
-                if (textoItem.contentEditable === "true") {
+                const textoData = itemTarefa.querySelector(".textoData");
+                if (textoItem.contentEditable === "true" && textoData.contentEditable === "true") {
                     textoItem.contentEditable = "false";
+                    textoData.contentEditable = "false";
                     atualizarLocalStorage();
                 } else {
                     textoItem.contentEditable = "true";
+                    textoData.contentEditable = "true";
                     textoItem.focus();
+                    textoData.focus();
                     
                     textoItem.addEventListener("keydown", function(event){
                         if (event.key === "Enter") {
                             event.preventDefault();
                             atualizarLocalStorage();
                             textoItem.contentEditable = "false";
+                        }
+                    });
+                    textoData.addEventListener("keydown", function(event){
+                        if (event.key === "Enter") {
+                            event.preventDefault();
+                            atualizarLocalStorage();
+                            textoData.contentEditable = "false";
                         }
                     });
                 }
@@ -94,12 +105,8 @@ document.addEventListener("DOMContentLoaded", function(){
             const itemSelecionado = Array.from(item.classList);
             const prioridade = item.querySelector(".filtroDePrioridades").value;
             tarefas.push({ textoTarefa, dataVencimento, marcado, itemSelecionado, prioridade});
-        });
-        tarefas.sort((a, b) =>{
-            if(a.prioridade < b.prioridade)return -1;
-            if(a.prioridade > b.prioridade)return 1;
-            return 0;
-        });
+        });  
+        
         const tarefasConcluidas = tarefas.filter(tarefa => tarefa.marcado).length;
         const contadorTarefasConcluidas = document.querySelector(".contadorTarefasConcluidas");
         contadorTarefasConcluidas.textContent = tarefasConcluidas.toString();
@@ -115,8 +122,11 @@ document.addEventListener("DOMContentLoaded", function(){
         try{
             let textoTarefa = tarefaAtribuida.value.trim();
             let dataVencimento = dataVencimentoInput.value;
+            let partesData = dataVencimento.split("-");
+            let dataOrdenada = partesData[2] + "-" + partesData[1] + "-" + partesData[0];
+            let dataVencimentoOrdenada = dataOrdenada;
             if(textoTarefa !== ""){
-                adicionarItem(textoTarefa, dataVencimento);
+                adicionarItem(textoTarefa, dataVencimentoOrdenada);
                 tarefaAtribuida.value = "";
                 dataVencimentoInput.value = "";
                 atualizarLocalStorage();
@@ -150,28 +160,68 @@ document.addEventListener("DOMContentLoaded", function(){
         const contadorTarefasPendentes = document.querySelector(".contadorTarefasPendentes");
         contadorTarefasPendentes.textContent = tarefasPendentes.toString();
     }
-});
 
-document.getElementById("filtroTarefas").addEventListener("change", function(){
-    try{
-        const filtro = this.value;
-        const listaDeTarefas = document.getElementById("listaDeTarefas");
-        const itens = listaDeTarefas.getElementsByTagName("li");
-        for (let i = 0; i < itens.length; i++) {
-            const item = itens[i];
+    document.getElementById("filtroTarefas").addEventListener("change", function(){
+        try{
+            const filtro = this.value;
+            const listaDeTarefas = document.getElementById("listaDeTarefas");
+            const itens = listaDeTarefas.getElementsByTagName("li");
+        
+            for (let i = 0; i < itens.length; i++) {
+                const item = itens[i];
+      
+                if (filtro === "todasTarefas") {
+                    item.style.display = "flex"; 
+                } else if (filtro === "tarefasPendentes" && !item.querySelector("input[type='checkbox']").checked) {
+                    item.style.display = "flex"; 
+                } else if (filtro === "tarefasConcluidas" && item.querySelector("input[type='checkbox']").checked) {
+                    item.style.display = "flex"; 
+                }else if (filtro === "ordenaPorPrioridade") {
 
-            if (filtro === "todasTarefas") {
-                item.style.display = "flex"; 
-            } else if (filtro === "tarefasPendentes" && !item.querySelector("input[type='checkbox']").checked) {
-                item.style.display = "flex"; 
-            } else if (filtro === "tarefasConcluidas" && item.querySelector("input[type='checkbox']").checked) {
-                item.style.display = "flex"; 
-            } else {
-                item.style.display = "none";
+                    const tarefasOrdenadas = Array.from(itens);
+                    tarefasOrdenadas.sort((a, b) => {
+                        const prioridadeA = a.querySelector(".filtroDePrioridades").value;
+                        const prioridadeB = b.querySelector(".filtroDePrioridades").value;
+                        if (prioridadeA < prioridadeB) return -1;
+                        if (prioridadeA > prioridadeB) return 1;
+                        return 0;
+                    });
 
+                    listaDeTarefas.innerHTML = "";
+    
+                    tarefasOrdenadas.forEach(tarefa => {
+                        listaDeTarefas.appendChild(tarefa);
+                    });
+                }else if(filtro === "ordenaPorDatas"){
+                    
+                    const tarefasOrdenadas = Array.from(itens);
+                    tarefasOrdenadas.sort((a, b) => {
+                        const dataA = a.querySelector(".textoData").textContent;
+                        const dataB = b.querySelector(".textoData").textContent;
+
+                        const partesDataA = dataA.split("-");
+                        const partesDataB = dataB.split("-");
+
+                        const dataOrdenadaA = new Date(partesDataA[2], partesDataA[1] - 1, partesDataA[0]);
+                        const dataOrdenadaB = new Date(partesDataB[2], partesDataB[1] - 1, partesDataB[0]);
+
+                        return dataOrdenadaA - dataOrdenadaB;
+                    });
+
+                    listaDeTarefas.innerHTML = "";
+
+                    tarefasOrdenadas.forEach(tarefa => {
+                        listaDeTarefas.appendChild(tarefa);
+                    });
+                }else {
+                    item.style.display = "none";
+                }
             }
-        } 
-    }catch(error){
-        console.error("Ocorreu um erro ao carregar o Filtro:", error);
-    }
+        } catch (error) {
+            console.error("Ocorreu um erro ao carregar o Filtro:", error);
+        }
+    });
 });
+
+
+
